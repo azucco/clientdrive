@@ -1,6 +1,6 @@
-caricaFiles();
-
 const listFiles = document.getElementById("listFiles");
+
+caricaFiles();
 
 const formCarica = document.getElementById("formCarica");
 const caricaBtn = document.getElementById("caricaBtn");
@@ -16,7 +16,7 @@ formCarica.addEventListener("submit", evt => {
     
    
     caricaFile();
-   
+    caricaFiles();
         
     
 })
@@ -24,6 +24,9 @@ formCarica.addEventListener("submit", evt => {
 
 
 function caricaFiles(){
+
+    listFiles.innerHTML = "";
+
     fetch("http://localhost/slimdrive/public/index.php/api/files", {method: "GET", headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}})
     .then(response => {
         console.log(response);
@@ -36,15 +39,15 @@ function caricaFiles(){
         jsonFiles.forEach(file => {
             let a = document.createElement(`a`);
             a.classList.add(`list-group-item`);           
-            a.innerHTML = `${file.filename}`;
-            a.setAttribute("href", `/slimdrive/src/uploads/${file.path}`);
+            a.innerHTML = `<i class="glyphicon glyphicon-file"></i> ${file.filename}`;
+            //a.setAttribute("href", `/slimdrive/src/uploads/${file.path}`);
             
             
             
             
-            let button = document.createElement(`button`);
+            let button = document.createElement(`a`);
             button.classList.add(`btn`);
-            button.classList.add(`btn-sm`);
+            //button.classList.add(`btn-sm`);
             button.classList.add(`btn-secondary`);
             button.classList.add(`pull-right`);
             button.classList.add(`marginBtn`);
@@ -56,9 +59,9 @@ function caricaFiles(){
             i.classList.add(`glyphicon`);
             i.classList.add(`glyphicon-cloud-download`);
 
-            let buttonx = document.createElement(`button`);
+            let buttonx = document.createElement(`a`);
             buttonx.classList.add(`btn`);
-            buttonx.classList.add(`btn-sm`);
+            //buttonx.classList.add(`btn-sm`);
             buttonx.classList.add(`btn-secondary`);
             buttonx.classList.add(`pull-right`);
             buttonx.classList.add(`marginBtn`);
@@ -84,6 +87,8 @@ function caricaFiles(){
 }
 
 function caricaFile(){
+
+   
     const fileInput = document.getElementById('file');
     const formData = new FormData();
     formData.append('newfile', fileInput.files[0]);
@@ -99,6 +104,7 @@ function caricaFile(){
         console.log(response);
         console.log(response.text());    
     })
+
 }
 /*
 function scaricaFile(id){
