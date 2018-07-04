@@ -42,14 +42,14 @@
                 <div class="form-inline col-sm-4">
                 <h4><i class="glyphicon glyphicon-user"></i> Indica con chi condividere i tuoi file</h4>
                   <div class="form-group">
-                    <input id="uts" type="text" name="usertoshare" placeholder="Username registrato">
+                    <input class="col-sm-12" id="uts" type="text" name="usertoshare" placeholder="Username registrato">
                   </div>
                 </div>
 
                 <div class="form-inline col-sm-3">
-                <h4><i class="glyphicon glyphicon-search"></i> Cerca</h4>
+                <h4><i class="glyphicon glyphicon-search"></i> Cerca tra i file</h4>
                   <div class="form-group">
-                    <input id="cerca" type="text" name="cerca">
+                    <input class="col-sm-12" id="cerca" type="text" name="cerca" placeholder="Premi INVIO per cercare">
                   </div>
                 </div>
             
@@ -101,6 +101,10 @@
 
 .hoverHand:hover {
   cursor: pointer;
+}
+
+.evidenziato {
+  background-color: lightgrey;
 }
 
 </style>
